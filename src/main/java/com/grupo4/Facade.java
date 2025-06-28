@@ -4,8 +4,15 @@ import com.grupo4.sistema_presencial.AtencionPresencial;
 import com.grupo4.sistema_virtual.AtencionVirtual;
 
 public class Facade {
+    private AtencionVirtual virtual;
+    private AtencionPresencial presencial;
+
+    public Facade() {
+        virtual = new AtencionVirtual();
+        presencial = new AtencionPresencial();
+    }
+
     public void atenderVirtual(String tipo) {
-        AtencionVirtual virtual = new AtencionVirtual();
         switch (tipo) {
             case "movil":
                 virtual.atenderMovil();
@@ -22,7 +29,6 @@ public class Facade {
     }
 
     public void atenderPrensencial() {
-        AtencionPresencial presencial = new AtencionPresencial();
         presencial.procesar();
     }
 }
